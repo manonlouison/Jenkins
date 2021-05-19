@@ -5,6 +5,9 @@
 MACHINE_DESTINATION="ec2-user@ec2-54-172-236-218.compute-1.amazonaws.com"
 PATH_SECRET_KEY="/secrets/kp-jenkins.pem"
 
+#Pour éviter que les permissions sur la clé soient trop ouvertes 
+sudo chmod 400 PATH_SECRET_KEY
+
 #On installe Java sur la machine distante 
 #ne pas oublier de mettre -o StrictHostKeyChecking=no pour ssh afin d'être non-interactif sur l'acception de la vérification de host
 #ne pas oublier de mettre -y pour yum ou amazon-linux-extras ou apt afin d'être non-interactif sur l'acception de l'installation
