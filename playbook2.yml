@@ -1,0 +1,26 @@
+---
+- name: Deploiement de l'application java dans un conteneur Docker présent dans la machine distante
+  hosts: all
+  become: yes
+  
+  tasks:
+      - name: Installation de Docker dans la machine distante
+        shell: amazon-linus-extras install -y docker
+        register: result_install
+      - debug: result_install
+          var=result_install
+          
+      - name: Envoyer le fichier helloWorld.class dans le dossier /app sur la machine distante
+        # Création du dossier app
+        file:
+            path: /app
+            state: directory
+            mode: 0777
+            owner: ec2-user
+        # Envoie du fichier
+        copy: 
+          src: helloWorld.class
+          dest: /app
+          mode: 0644
+          
+        - name: Envoie du fichier dockerfile sur la machine distante
