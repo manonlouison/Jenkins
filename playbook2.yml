@@ -10,17 +10,26 @@
       - debug: result_install
           var=result_install
           
-      - name: Envoyer le fichier helloWorld.class dans le dossier /app sur la machine distante
+      - name: Envoyer les fichiers helloWorld.class & Dockerfile dans le dossier /app sur la machine distante
         # Création du dossier app
         file:
             path: /app
             state: directory
             mode: 0777
             owner: ec2-user
-        # Envoie du fichier
+        # Envoie des fichiers
         copy: 
           src: helloWorld.class
           dest: /app
           mode: 0644
           
-        - name: Envoie du fichier dockerfile sur la machine distante
+        copy: 
+          src: Dockerfile
+          dest: /app
+          mode: 0644
+          
+       - name: On génère l'image docker, on l'appelle formation/java:1.0
+         shell: docker run --rm --name conteneur_app formation/java:1.0
+         register: result
+       - debug:
+           var=result
