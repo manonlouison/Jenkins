@@ -29,7 +29,7 @@
           mode: 0644
           
       - name: On génère l'image docker, on l'appelle formation/java:1.0
-         shell: docker run --rm --name conteneur_app formation/java:1.0
-         register: result
+        shell: docker run --rm --name conteneur_app formation/java:1.0
+        register: result
       - debug:
            var=result
