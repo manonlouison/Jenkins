@@ -7,7 +7,7 @@
       - name: Installation de Docker dans la machine distante
         shell: amazon-linus-extras install -y docker
         register: result_install
-      - debug: result_install
+      - debug:
           var=result_install
           
       - name: Envoyer les fichiers helloWorld.class & Dockerfile dans le dossier /app sur la machine distante
