@@ -32,4 +32,4 @@
         shell: docker run --rm --name conteneur_app formation/java:1.0
         register: result
       - debug:
-           var=result
+          var=result
