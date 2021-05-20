@@ -2,7 +2,7 @@
 #deploy_remote.sh
 
 #Je mets la chaine de connexion de ma machine distance dans une variable
-MACHINE_DESTINATION="ec2-user@ec2-54-172-236-218.compute-1.amazonaws.com"
+MACHINE_DESTINATION="ec2-34-234-64-236.compute-1.amazonaws.com"
 PATH_SECRET_KEY="/secrets/kp-jenkins.pem"
 
 #Pour éviter que les permissions sur la clé soient trop ouvertes 
